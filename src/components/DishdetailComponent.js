@@ -1,12 +1,14 @@
 import React from 'react';
 import { Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 
-function RenderDish({ dish }) {
+function RenderDish({ dish, comments }) {
     if (dish != null) {
 
-        const comments = dish.comments.map((comment) => {
+        const comm = comments.map((comment) => {
             return (
                 <div className="col-12 col-md-6 mt-5">
 
@@ -30,7 +32,7 @@ function RenderDish({ dish }) {
                             <p> {dish.description} </p>
                             <br></br>
                             <h6>Comments and Reviews</h6>
-                            <p>{comments}</p>
+                            <p>{comm}</p>
 
                         </Media>
 
@@ -53,9 +55,20 @@ const DishDetail = (props) => {
     return (
         <div className="container">
 
+            <div className="row">
+                <Breadcrumb className="col-12">
+                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>{props.dish.name}</h3>
+                    <hr />
+                </div>
+            </div>
+
             <div>
 
-                <RenderDish dish={props.selectedDish} />
+                <RenderDish dish={props.dish} comments={props.comments} />
 
             </div>
         </div>
