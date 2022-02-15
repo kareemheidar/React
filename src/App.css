@@ -77,4 +77,9 @@ address{
 
 .custom-btn {
   color: white;
+  border: 1px solid white;
+}
+
+.custom-fav {
+  color: white;
 }
