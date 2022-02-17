@@ -83,3 +83,9 @@ address{
 .custom-fav {
   color: white;
 }
+
+.custom-modal-header {
+  color: floralwhite;
+  background-color: #512DA8;
+
+}

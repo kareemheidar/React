@@ -1,6 +1,7 @@
 import React from 'react';
 import { Media } from 'reactstrap';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import CommentForm from './CommentComponent';
 import { Link } from 'react-router-dom';
 
 
@@ -32,7 +33,10 @@ function RenderDish({ dish, comments }) {
                             <p> {dish.description} </p>
                             <br></br>
                             <h6>Comments and Reviews</h6>
-                            <p>{comm}</p>
+                            <p>{comm}<br></br></p>
+                            <CommentForm/>
+                            <p><br></br></p>
+
 
                         </Media>
 
@@ -69,6 +73,7 @@ const DishDetail = (props) => {
             <div>
 
                 <RenderDish dish={props.dish} comments={props.comments} />
+                
 
             </div>
         </div>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {
-    Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label
-} from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody,
+    Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 
 class Header extends Component {
@@ -84,7 +82,7 @@ class Header extends Component {
                     </div>
                 </div>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+                    <ModalHeader toggle={this.toggleModal} className="custom-modal-header">Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
                             <FormGroup>
@@ -104,7 +102,7 @@ class Header extends Component {
                                     Remember me
                                 </Label>
                             </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Login</Button>
+                            <Button type="submit" value="submit" color="primary" className='offset-md-10'>Login</Button>
                         </Form>
                     </ModalBody>
                 </Modal>
