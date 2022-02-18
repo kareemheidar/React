@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function RenderDish({ dish, comments }) {
+function RenderDish({ dish, comments, addComment, dishId }) {
     if (dish != null) {
 
         const comm = comments.map((comment) => {
@@ -32,11 +32,10 @@ function RenderDish({ dish, comments }) {
                             <Media heading>{dish.name}</Media>
                             <p> {dish.description} </p>
                             <br></br>
-                            <h6>Comments and Reviews</h6>
+                            <h5>Comments and Reviews</h5>
                             <p>{comm}<br></br></p>
-                            <CommentForm/>
+                            <CommentForm dishId={dishId} addComment={addComment} />
                             <p><br></br></p>
-
 
                         </Media>
 
@@ -52,6 +51,8 @@ function RenderDish({ dish, comments }) {
         );
     }
 }
+
+
 
 const DishDetail = (props) => {
 
@@ -72,8 +73,7 @@ const DishDetail = (props) => {
 
             <div>
 
-                <RenderDish dish={props.dish} comments={props.comments} />
-                
+                <RenderDish dish={props.dish} comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
 
             </div>
         </div>
