@@ -2,6 +2,7 @@ import React from 'react';
 import { Media } from 'reactstrap';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import CommentForm from './CommentComponent';
+import { Loading } from './LoadingComponent';
 import { Link } from 'react-router-dom';
 
 
@@ -56,28 +57,48 @@ function RenderDish({ dish, comments, addComment, dishId }) {
 
 const DishDetail = (props) => {
 
-
-    return (
-        <div className="container">
-
-            <div className="row">
-                <Breadcrumb className="col-12">
-                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
-                </Breadcrumb>
-                <div className="col-12">
-                    <h3>{props.dish.name}</h3>
-                    <hr />
+    if (props.isLoading) {
+        return (
+            <div className='container'>
+                <div className='row'>
+                    <div className='offset-md-6 mt-3'><Loading /></div>
                 </div>
             </div>
-
-            <div>
-
-                <RenderDish dish={props.dish} comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
-
+        );
+    }
+    else if (props.errMess) {
+        return (
+            <div className='container'>
+                <div className='row'>
+                    <h4>{props.errMess}</h4>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else if (props.dish != null) {
+        return (
+            <div className="container">
+
+                <div className="row">
+                    <Breadcrumb className="col-12">
+                        <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className="col-12">
+                        <h3>{props.dish.name}</h3>
+                        <hr />
+                    </div>
+                </div>
+
+                <div>
+
+                    <RenderDish dish={props.dish} comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
+
+                </div>
+            </div>
+        );
+    }
+
 }
 
 
