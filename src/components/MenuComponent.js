@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+
 
 
 
@@ -9,7 +11,7 @@ function RenderMenuItem({ dish, onClick }) {
     return (
         <Link to={`/menu/${dish.id}`}>
             <Card>
-                <CardImg top height="200px" src={dish.image} alt={dish.name} />
+                <CardImg top height="200px" src={baseUrl + dish.image} alt={dish.name} />
                 <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
                 </CardBody>

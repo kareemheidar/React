@@ -4,6 +4,7 @@ import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import CommentForm from './CommentComponent';
 import { Loading } from './LoadingComponent';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 
 
@@ -27,7 +28,7 @@ function RenderDish({ dish, comments, addComment, dishId }) {
                 <div key={dish.id} className="col-12 mt-5">
                     <Media>
                         <Media left middle>
-                            <Media object src={dish.image} alt={dish.name} />
+                            <Media object src={baseUrl + dish.image} alt={dish.name} />
                         </Media>
                         <Media body className="ml-5">
                             <Media heading>{dish.name}</Media>
