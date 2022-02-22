@@ -8,7 +8,7 @@ import { baseUrl } from '../shared/baseUrl';
 
 
 
-function RenderDish({ dish, comments, addComment, dishId }) {
+function RenderDish({ dish, comments, postComment, dishId }) {
     if (dish != null) {
 
         const comm = comments.map((comment) => {
@@ -36,7 +36,7 @@ function RenderDish({ dish, comments, addComment, dishId }) {
                             <br></br>
                             <h5>Comments and Reviews</h5>
                             <p>{comm}<br></br></p>
-                            <CommentForm dishId={dishId} addComment={addComment} />
+                            <CommentForm dishId={dishId} postComment={postComment} />
                             <p><br></br></p>
 
                         </Media>
@@ -93,7 +93,7 @@ const DishDetail = (props) => {
 
                 <div>
 
-                    <RenderDish dish={props.dish} comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
+                    <RenderDish dish={props.dish} comments={props.comments} postComment={props.postComment} dishId={props.dish.id} />
 
                 </div>
             </div>
